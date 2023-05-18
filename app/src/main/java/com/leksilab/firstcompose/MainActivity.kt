@@ -4,10 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
@@ -31,10 +28,39 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    MyBox()
+//                    MyBox()
+//                    MyColumn()
+                    MyRow()
                 }
             }
         }
+    }
+}
+
+@Composable
+fun MyRow() {
+    Row(Modifier.fillMaxSize()) {
+        Text(text = "TextRow 1")
+        Text(text = "TextRow 2")
+        Text(text = "TextRow 3")
+    }
+}
+@Composable
+fun MyColumn() {
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.SpaceBetween) {
+        Text("Texto 1", modifier = Modifier
+            .background(Color.Red)
+            .fillMaxSize()
+            .height(50.dp)) // .weight(1f)
+        Text("Texto 2", modifier = Modifier.background(Color.Black))
+        Text("Texto 3", modifier = Modifier.background(Color.Cyan))
+        Text("Texto 4", modifier = Modifier.background(Color.Blue))
+        Text("Texto 4", modifier = Modifier.background(Color.Blue))
+        Text("Texto 4", modifier = Modifier.background(Color.Blue))
+        Text("Texto 4", modifier = Modifier.background(Color.Blue))
+        Text("Texto 4", modifier = Modifier.background(Color.Blue))
     }
 }
 
@@ -59,6 +85,8 @@ fun MyBox() {
 @Composable
 fun DefaultPreview() {
     FirstComposeTheme {
-        MyBox()
+//        MyBox()
+//        MyColumn()
+        MyRow()
     }
 }
