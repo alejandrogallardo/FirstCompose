@@ -48,6 +48,7 @@ fun MyComplexLayout() {
                 .background(Color.Cyan)){
 
         }
+        MySpacer(size = 30)
         Row(
             Modifier
                 .fillMaxWidth()
@@ -71,6 +72,11 @@ fun MyComplexLayout() {
 
         }
     }
+}
+
+@Composable
+fun MySpacer(size: Int) {
+    Spacer(modifier = Modifier.height(size.dp))
 }
 
 @Composable
