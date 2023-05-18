@@ -30,9 +30,45 @@ class MainActivity : ComponentActivity() {
                 ) {
 //                    MyBox()
 //                    MyColumn()
-                    MyRow()
+//                    MyRow()
+                    MyComplexLayout()
                 }
             }
+        }
+    }
+}
+
+@Composable
+fun MyComplexLayout() {
+    Column(Modifier.fillMaxSize()) {
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .background(Color.Cyan)){
+
+        }
+        Row(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)){
+            Box(modifier = Modifier
+                .weight(1f)
+                .fillMaxHeight()
+                .background(Color.Red))
+            Box(modifier = Modifier
+                .weight(1f)
+                .fillMaxHeight()
+                .background(Color.Green), Alignment.Center) {
+                Text(text = "HOLA MUNDO")
+            }
+        }
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .background(Color.Magenta)){
+
         }
     }
 }
@@ -87,6 +123,7 @@ fun DefaultPreview() {
     FirstComposeTheme {
 //        MyBox()
 //        MyColumn()
-        MyRow()
+//        MyRow()
+        MyComplexLayout()
     }
 }
