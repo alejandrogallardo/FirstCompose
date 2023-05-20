@@ -20,6 +20,10 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.leksilab.firstcompose.ui.theme.FirstComposeTheme
@@ -118,6 +122,17 @@ fun MyRow() {
         Text(text = "TextRow 1")
         Text(text = "TextRow 2")
         Text(text = "TextRow 3")
+        Text(text = "TextRow 3", color = Color.Blue)
+        Text(text = "TextRow 3", fontWeight = FontWeight.ExtraBold)
+        Text(text = "TextRow 3", fontWeight = FontWeight.Light)
+        Text(text = "TextRow 3", style = TextStyle(fontFamily = FontFamily.Cursive))
+        Text(text = "TextRow 3", style = TextStyle(textDecoration = TextDecoration.LineThrough))
+        Text(text = "TextRow 3", style = TextStyle(textDecoration = TextDecoration.Underline))
+        Text(text = "TextRow 3", style = TextStyle(textDecoration = TextDecoration.combine(
+            listOf(TextDecoration.LineThrough, TextDecoration.Underline)
+        )))
+
+        Text(text = "TextRow 3", textDecoration = TextDecoration.Underline)
     }
 }
 @Composable
