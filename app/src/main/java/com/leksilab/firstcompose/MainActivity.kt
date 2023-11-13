@@ -7,10 +7,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -42,10 +39,44 @@ class MainActivity : ComponentActivity() {
 //                    MyColumn()
 //                    MyRow()
 //                    MyComplexLayout()
-                    MyStateExample()
+//                    MyStateExample()
+                    MyEditText()
                 }
             }
         }
+    }
+}
+
+@Composable
+fun MyEditText() {
+    // BASICO
+    /*var myText by remember {
+        mutableStateOf("")
+    }
+    TextField(value = myText, onValueChange = {myText = it})*/
+
+    // AVANZADO
+    /*var myText by remember {
+        mutableStateOf("")
+    }
+    TextField(value = myText, onValueChange = {
+        myText = if (it.contains("a")) {
+            it.replace("a", "")
+        } else {
+            it
+        }
+    },
+    label = { Text(text = "Ingresa tu nombre:")}
+    )*/
+
+    Column() {
+        var myText by remember {
+            mutableStateOf("")
+        }
+        OutlinedTextField(value = myText, onValueChange = {myText = it},
+            modifier = Modifier.padding(25.dp),
+        label = { Text(text = "HOLIS")},
+        colors = TextFieldDefaults.outlinedTextFieldColors(focusedBorderColor = Color.Blue, unfocusedBorderColor = Color.Magenta))
     }
 }
 
@@ -179,6 +210,7 @@ fun DefaultPreview() {
 //        MyColumn()
 //        MyRow()
 //        MyComplexLayout()
-        MyStateExample()
+//        MyStateExample()
+        MyEditText()
     }
 }
