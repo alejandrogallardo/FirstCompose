@@ -47,13 +47,20 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyButtonExample() {
+    // Al momento de dar click el componente se vuelve a recrear
+    // al momento de rotar la pantalla el componente se vuelve a recrear
+    var enable by rememberSaveable {
+        mutableStateOf(true)
+    }
     Column(
         Modifier
             .fillMaxSize()
             .padding(24.dp)) {
         Button(onClick = {
-            Log.i("Alex-Button", "Esto es un ejemplo")
+//            Log.i("Alex-Button", "Esto es un ejemplo")
+              enable = false
         },
+            enabled = enable,
             colors = ButtonDefaults.buttonColors(backgroundColor = Color.Magenta, contentColor = Color.Blue),
             border = BorderStroke(5.dp, Color.Green)
         ) {
