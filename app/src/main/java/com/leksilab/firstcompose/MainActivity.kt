@@ -66,14 +66,19 @@ fun MyButtonExample() {
         ) {
             Text(text = "HOLA")
         }
-        OutlinedButton(onClick = { /*TODO*/ },
-        Modifier.padding(8.dp),
+        
+        OutlinedButton(onClick = { /*TODO*/ }, 
+            Modifier.padding(8.dp),
             colors = ButtonDefaults.buttonColors(
                 backgroundColor = Color.Magenta,
                 contentColor = Color.Blue,
             disabledBackgroundColor = Color.DarkGray,
             disabledContentColor = Color.Green)) {
             Text(text = "Hola 2")
+        }
+        
+        TextButton(onClick = { /*TODO*/ }) {
+            Text(text = "Hola 3")
         }
     }
 }
