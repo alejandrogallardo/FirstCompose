@@ -10,6 +10,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.MaterialTheme.colors
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Star
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -47,13 +49,23 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
+fun MyIcon() {
+    Icon(
+        imageVector = Icons.Rounded.Star,
+        contentDescription = "Icono",
+        tint = Color.Red
+    )
+}
+
+@Composable
 fun MyImageAdvance() {
     Image(
         painter = painterResource(id = R.drawable.ic_launcher_background),
         contentDescription = "Ejemplo",
         // modifier = Modifier.clip(RoundedCornerShape(25f)))
         // modifier = Modifier.clip(CircleShape) // CircleShape genera un circulo
-        modifier = Modifier.clip(CircleShape)
+        modifier = Modifier
+            .clip(CircleShape)
             .border(5.dp, Color.Red, CircleShape)
     )
 }
